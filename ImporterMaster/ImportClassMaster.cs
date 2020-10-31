@@ -219,6 +219,19 @@ namespace PowerApps.ImporterClassMaster
                     createFieldString("Phone", "Phone", stringFormat.Phone, ref addedAttributes );
                     createFieldString("Mobile", "Mobile", stringFormat.Phone,ref  addedAttributes );
                     createFieldDate("CreatedTime", "Created Time", ref addedAttributes, DateTime.DateAndTime);
+					createFieldString("FullName", "Full Name", stringFormat.Text, ref addedAttributes );
+					createFieldString("MailingStreet", "Mailing Street", stringFormat.Text, ref addedAttributes );
+					createFieldString("Description", "Description", stringFormat.Text, ref addedAttributes );
+					createFieldString("Email", "Email", stringFormat.Email, ref addedAttributes );
+					createFieldString("SecondaryEmail", "Secondary Email", stringFormat.Email, ref addedAttributes );
+					createFieldString("ZillowPropertyID", "Zillow Property ID", stringFormat.Text, ref addedAttributes );
+					createFieldString("ZillowHomeValue", "Zillow Home Value", stringFormat.Text, ref addedAttributes, "money" );
+					createFieldString("ZillowValueRangeLow", "Zillow Value Range Low", stringFormat.Text, ref addedAttributes, "money" );
+					createFieldString("ZillowBathroom", "Zillow Bathroom", stringFormat.Text, ref addedAttributes );
+					createFieldString("ZillowBedroom", "Zillow Bedroom", stringFormat.Text, ref addedAttributes );
+					createFieldDate("ZillowLastSoldDate", "Zillow Last Sold Date", ref addedAttributes, DateTimeFormat.DateOnly);
+					createFieldString("ZillowLastSoldPrice", "Zillow Last Sold Price", stringFormat.Text, ref addedAttributes, "money" );
+					createFieldString("ZillowLotSize", "Zillow Lot Size", stringFormat.Text, ref addedAttributes );
                     #endregion FieldImport
 
                     List<string> attributesnotAdded = new List<string>();
