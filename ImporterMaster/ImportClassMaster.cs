@@ -146,7 +146,7 @@ namespace PowerApps.ImporterClassMaster
         /// <param name="falseValue">False Value Label</param>
         /// <param name="addedAttributes">Pass by reference (ref addedAttributes)</param>
         /// <returns></returns>
-        static List<AttributeMetadata> createFieldBoolean(string SchemaName, string DisplayName, string trueValue, string falseValue, ref List<AttributeMetadata> addedAttributes)
+        static void createFieldBoolean(string SchemaName, string DisplayName, string trueValue, string falseValue, ref List<AttributeMetadata> addedAttributes)
         {
             var CreatedBooleanAttributeMetadata = new BooleanAttributeMetadata()
             {
@@ -163,7 +163,6 @@ namespace PowerApps.ImporterClassMaster
                 ),
             };
             addedAttributes.Add(CreatedBooleanAttributeMetadata);
-            return addedAttributes;
         }
 
 
@@ -177,7 +176,7 @@ namespace PowerApps.ImporterClassMaster
         /// <param name="addedAttributes">Pass by reference(the entity List object)</param>
         /// <param name="format">DateFormat.DateOnly, DateFormat.DateOnly</param>
         /// <returns></returns>
-        static List<AttributeMetadata> createFieldDate(string SchemaName, string DisplayName, ref List<AttributeMetadata> addedAttributes, DateTimeFormat format)
+        static void createFieldDate(string SchemaName, string DisplayName, ref List<AttributeMetadata> addedAttributes, DateTimeFormat format)
         {
             var CreatedDateTimeAttributeMetadata = new DateTimeAttributeMetadata
             {
@@ -194,7 +193,6 @@ namespace PowerApps.ImporterClassMaster
             };
 
             addedAttributes.Add(CreatedDateTimeAttributeMetadata);
-            return addedAttributes;
         }
 
         //[STAThread]
@@ -221,7 +219,7 @@ namespace PowerApps.ImporterClassMaster
                     createFieldDate("CreatedTime", "Created Time", ref addedAttributes, DateTime.DateAndTime);
 					createFieldString("FullName", "Full Name", stringFormat.Text, ref addedAttributes );
 					createFieldString("MailingStreet", "Mailing Street", stringFormat.Text, ref addedAttributes );
-					createFieldString("Description", "Description", stringFormat.Text, ref addedAttributes );
+					createFieldString("Description", "Description", stringFormat.Text, ref addedAttributes, "multi" );
 					createFieldString("Email", "Email", stringFormat.Email, ref addedAttributes );
 					createFieldString("SecondaryEmail", "Secondary Email", stringFormat.Email, ref addedAttributes );
 					createFieldString("ZillowPropertyID", "Zillow Property ID", stringFormat.Text, ref addedAttributes );
@@ -232,6 +230,31 @@ namespace PowerApps.ImporterClassMaster
 					createFieldDate("ZillowLastSoldDate", "Zillow Last Sold Date", ref addedAttributes, DateTimeFormat.DateOnly);
 					createFieldString("ZillowLastSoldPrice", "Zillow Last Sold Price", stringFormat.Text, ref addedAttributes, "money" );
 					createFieldString("ZillowLotSize", "Zillow Lot Size", stringFormat.Text, ref addedAttributes );
+					createFieldString("ZillowTaxAssessment", "Zillow Tax Assessment", stringFormat.Text, ref addedAttributes, "money" );
+					createFieldDate("ZillowTaxAssessment", "Zillow Tax Assessment", ref addedAttributes, DateTimeFormat.DateOnly);
+					createFieldString("ZillowValueRangeHigh", "Zillow Value Range High", stringFormat.Text, ref addedAttributes, "money" );
+					createFieldString("ZillowYearBuilt", "Zillow Year Built", stringFormat.Text, ref addedAttributes);
+					createFieldString("ZillowLink", "Zillow Link", stringFormat.Url, ref addedAttributes );
+					createFieldString("DocketNumber", "Docket Number", stringFormat.Text, ref addedAttributes);
+					createFieldDate("DateofDeath", "Date of Death", ref addedAttributes, DateTimeFormat.DateOnly );
+					createFieldDate("ProbateDate", "Probate Date", ref addedAttributes, DateTimeFormat.DateOnly );
+					createFieldString("ProbateCounty", "Probate County", stringFormat.Text, ref addedAttributes);
+					createFieldPicklist("ConsiderPurchase", "Consider Purchase Checklist", "new_considerpurchasechecklistglobal", ref addedAttributes, "multi");
+					createFieldString("LeadSourceID", "Lead Source ID", stringFormat.Text, ref addedAttributes);
+					createFieldString("LeadNumber", "Lead Number", stringFormat.Text, ref addedAttributes);
+					createFieldPicklist("SalesStage", "Sales Stage", "cr4f2_opportunitysalesstage", ref addedAttributes);
+					createFieldString("TextResponse", "Text Response", stringFormat.Text, ref addedAttributes, "multi");
+					createFieldPicklist("OpportunityStatus", "Status", "new_msvproperties_status_option_global", ref addedAttributes);
+					createFieldString("DealsID", "Deals ID", stringFormat.Text, ref addedAttributes);
+					createFieldString("AttorneyCityTown", "Attorney City/Town", stringFormat.Text, ref addedAttributes);
+					createFieldString("AttorneyAddress", "Attorney Address", stringFormat.Text, ref addedAttributes);
+					createFieldString("AttorneyZipCode", "Attorney Zip Code", stringFormat.Text, ref addedAttributes);
+					createFieldString("AttorneyStateProvince", "Attorney State/Province", stringFormat.Text, ref addedAttributes);
+					createFieldString("Zestimate", "Zestimate", stringFormat.Text, ref addedAttributes, "money");
+					createFieldString("AttorneyFirmName", "Attorney Firm Name", stringFormat.Text, ref addedAttributes);
+					createFieldString("AttorneyPhoneNumber", "Attorney Phone Number", stringFormat.Phone, ref addedAttributes);
+					createFieldString("AttorneyPrimaryEmail", "Attorney Primary Email", stringFormat.Email, ref addedAttributes);
+					createFieldString("AttorneyFullName", "Attorney Full Name", stringFormat.Text, ref addedAttributes);
                     #endregion FieldImport
 
                     List<string> attributesnotAdded = new List<string>();
