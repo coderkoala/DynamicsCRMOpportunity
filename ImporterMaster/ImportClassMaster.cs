@@ -210,9 +210,9 @@ namespace PowerApps.ImporterClassMaster
                 if (service.IsReady)
                 {
                     #region FieldImport
-                    createFieldString("ContactID", "Contact ID *", StringFormat.Text, ref addedAttributes);
-                    createFieldString("ContactOwnerID", "Contact Owner ID *", StringFormat.Text, ref addedAttributes);
-                    createFieldPicklist("LeadSource", "Lead Source *", "new_msvproperties_leadtype_option_global20201024084509653", ref addedAttributes );
+                    createFieldString("ContactID", "Contact ID", StringFormat.Text, ref addedAttributes);
+                    createFieldString("ContactOwnerID", "Contact Owner ID", StringFormat.Text, ref addedAttributes);
+                    createFieldPicklist("LeadSource", "Lead Source", "new_msvproperties_leadtype_option_global20201024084509653", ref addedAttributes );
                     createFieldString("Email", "Email", StringFormat.Email, ref addedAttributes );
                     createFieldString("Phone", "Phone", StringFormat.Phone, ref addedAttributes );
                     createFieldString("Mobile", "Mobile", StringFormat.Phone,ref  addedAttributes );
